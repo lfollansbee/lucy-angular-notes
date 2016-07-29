@@ -1,0 +1,16 @@
+body{
+  display: flex;
+  flex-wrap: wrap-reverse;
+  box-sizing: border-box;
+}
+
+body > section{
+  border:1px black solid;
+  margin:.5vw;
+  padding: .5vw;
+  width: 31%;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

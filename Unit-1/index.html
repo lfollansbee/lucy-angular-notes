@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html ng-app="firstApp">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ greeting }} World</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section class="one-two">
+      <h1>sections 1 and 2</h1>
+      <p>{{1+6}}</p>
+      <p>Say something to the world
+        <input type="text" ng-model="greeting" ng-init="greeting='Hello, '">
+      </p>
+      <p>{{ greeting }} world!</p>
+      <label>My Name:</label><input ng-model="name" ng-init="name ='BoJack'"></input>
+      <h1>My name is: {{name}}</h1>
+        <select name="pets" ng-model="pets">
+          <option value="dogs">Dogs</option>
+          <option value="cats">Cats</option>
+          <option value="dogs and cats">Dogs and Cats</option>
+          <option value="neither">Neither</option>
+        </select>
+      <h3>I love {{pets}} &lt;3</h3>
+    </section>
+    <section class="three-four">
+      <h1>sections 3 and 4</h1>
+      <p>The array [99,43,22] is {{ [99,43,22].length }} items long.</p>
+      <p>{{3.14159265359 | currency: "€"}}</p>
+      <input type="text" ng-model="case">
+      <p>shouting: {{case | uppercase}}</p>
+      <p>whispering: {{case | lowercase}}</p>
+      <p>3 spaces: {{3.14159265359 | number:3}}<br>6 spaces: {{3.14159265359 | number:6}}<br>1 space: {{3.14159265359 | number:1}}</p>
+      <label>How many digits of pi do you want?</label>
+      <select name="pi" ng-model="pi">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7" selected>7</option>
+      </select>
+      <p>Here you go! The first {{pi}}
+        <ng-pluralize count="pi"when="{'1': 'digit', 'other': 'digits'}"></ng-pluralize>
+        of pi!<br>{{3.14159265359 | number: pi}}</p>
+      <h2>Tip Calculator</h2>
+      <label>How much did your meal cost?</label>
+        <input type="text" ng-model="cost"><br>
+      <label>How much do you want to tip?</label>
+        <select name="tip" ng-model="tip">
+          <option value=".10">10%</option>
+          <option value=".15">15%</option>
+          <option value=".20">20%</option>
+        </select>
+      <h3>Subtotal: {{cost | currency}}</h3>
+      <h3>Tip: {{cost * tip | currency}}</h3><br>
+      <div>{{this}}</div>
+      <div class="mad-libs">
+        <h2>Please Fill Out the Following!</h2>
+        <label>Boy's Name</label>
+          <input type="text" ng-model="boyName" placeholder="Enter a boy's name...">
+        <label>Adjective</label>
+          <input type="text" ng-model="adj" placeholder="Enter an adjective ...">
+        <label>Plural Noun</label>
+          <input type="text" ng-model="pnoun1" placeholder="Enter a plural noun...">
+        <label>Plural Noun</label>
+          <input type="text" ng-model="pnoun2" placeholder="Enter a plural noun...">
+        <label>An insect, plural</label>
+          <input type="text" ng-model="insect" placeholder="Enter an insect, plural...">
+        <label>Plural noun</label>
+          <input type="text" ng-model="pnoun3" placeholder="Enter a plural noun...">
+        <label>A verb ending in "s"</label>
+          <input type="text" ng-model="verbS" placeholder="Enter a verb ending in 's'...">
+        <h2>Mad with the Libs</h2>
+        <h4>I'm in love with {{customBoyName}}. He's so {{adj}}! He has big flat {{pnoun1}}, and when our {{pnoun2}} meet, I get {{insect}} in my stomach. I've fallen for him like a ton of {{pnoun3}}, and he {{verbS}} for me, too. But I think he's got another girlfriend. What should I do?</h4>
+      </div>
+    </section>
+    <section class="five">
+      <h1>section 5</h1>
+      <ul>3 built-in directives that we have used so far.
+        <li><code>ng-app</code></li>
+        <li><code>ng-model</code></li>
+        <li><code>ng-pluralize</code></li>
+      </ul>
+      <div ng-init="names=['Harry', 'Ron', 'Hermione', 'Sirius', 'Hedwig', 'Tonks']">
+        <ul>
+          <li ng-repeat='name in names'>
+            {{name}}
+           </li>
+        </ul>
+        <p><code>ng-repeat="name in names"</code> Repeats the entire list again for the length of the array.</p>
+      </div>
+      <div ng-init="symbols=['&spades;', '&clubs;', '&hearts;', '&diams;']">
+        <ul>
+          <li ng-repeat='suite in symbols'>{{suite}}</li>
+        </ul>
+      </div>
+
+      <div ng-init="digits=[1,2,5,6,9,9,9]">
+        <p><code>ng-repeat</code> with duplicates just doesn't show anything at all because when there are duplicates, it is not possible to maintain a one-to-one mapping between collection items and DOM elements. You can work around this by using the <code>track by</code> expression.</p>
+        <ul>
+          <li ng-repeat="digit in digits track by $index">{{digit}}</li>
+        </ul>
+      </div>
+
+      <div ng-init="daniel={'name':'Daniel', 'age':30, 'title':'Sir'}">
+        <h4>Using <code>ng-repeat</code> to iterate through the attributes (keys) of an object and list them</h4>
+        <ul>
+          <li ng-repeat="(key,value) in daniel">{{key}}: {{value}}</li>
+        </ul>
+      </div>
+      <p>When the element is hidden it changes it's <code>display</code> to <code>display: none !important;</code> to hide the element.</p>
+      <div class="sign-up">
+        <h2>Sign up page</h2>
+        <input type="password" ng-model="password" ng-class='{invalid: password.length<6, valid: password.length>5}'>
+        <p ng-class='{invalid: password.length<6, valid: password.length>5}'>Your password is {{password.length}} characters long</p>
+        <p ng-show='password.length <6'>Password is invalid!</p>
+        <button ng-show='password.length >=6'>Sign Up</submit>
+      </div>
+
+      <div class="camera" ng-init="cameras=[
+        {
+          title: 'Nikon D3100 DSLR',
+          image: 'http://ecx.images-amazon.com/images/I/713u2gDQqML._SX522_.jpg',
+          rating: 3.4,
+          price: 369.99,
+          onSale: true
+        },
+        {
+          title: 'Canon EOS 70D',
+          image: 'http://ecx.images-amazon.com/images/I/81U00AkAUWL._SX522_.jpg',
+          rating: 2.0,
+          price: 1099.0,
+          onSale: false
+        },
+        {
+          title: 'Nikon D810A',
+          image:'http://ecx.images-amazon.com/images/I/91wtXIfLl2L._SX522_.jpg',
+          rating: 4.2,
+          price: 3796.95,
+          onSale: true
+        }
+      ]">
+        <h2>Camera Shop</h2>
+        <select ng-model="sortBy">
+          <option value="price">Price</option>
+          <option value="rating">Rating</option>
+        </select>
+        <div class="each-camera" ng-repeat="camera in cameras | orderBy: sortBy">
+          <h4>{{camera.title}}</h4>
+          <p ng-class='{onSale: camera.onSale === true}'>Price: {{camera.price | currency}}<span class="onSale" ng-show='camera.onSale === true'> ON SALE!</span></p>
+          <p>Rating: {{camera.rating}}</p>
+          <img src={{camera.image}}>
+        </div>
+      </div>
+
+    </section>
+    <section class="six">
+      <div ng-controller="MyFirstController">
+        <h1>section 6</h1>
+        <h2>My name is: {{name}}</h2>
+        <input ng-model="name" type="text" placeholder="What is your name">
+        <p>Moving the above <code>h2 and input</code> outside of the section where the controller is defined doesn't cause an error because it's still within <code>ng-app</code> name could still be defined by the input.</p>
+      </div>
+      <div ng-controller="ExercisesController">
+        <h2>Section 6 exercises:</h2>
+        <h5>My favorite color is: {{FavColor}}</h5>
+        <h3>Seconds in a century: {{secondsInACentury | number}}</h3>
+        <p>{{rightNow | date}}</p>
+      </div>
+
+      <div ng-controller="MadLib">
+        <div class="mad-libs">
+          <h2>Please Fill Out the Following!</h2>
+          <label>Boy's Name</label>
+            <input type="text" ng-model="boyName" placeholder="Enter a boy's name...">
+          <label>Adjective</label>
+            <input type="text" ng-model="adj" placeholder="Enter an adjective ...">
+          <label>Plural Noun</label>
+            <input type="text" ng-model="pnoun1" placeholder="Enter a plural noun...">
+          <label>Plural Noun</label>
+            <input type="text" ng-model="pnoun2" placeholder="Enter a plural noun...">
+          <label>An insect, plural</label>
+            <input type="text" ng-model="insect" placeholder="Enter an insect, plural...">
+          <label>Plural noun</label>
+            <input type="text" ng-model="pnoun3" placeholder="Enter a plural noun...">
+          <label>A verb ending in "s"</label>
+            <input type="text" ng-model="verbS" placeholder="Enter a verb ending in 's'...">
+          <button ng-click="generate(boyName, adj, pnoun1, pnoun2, insect, pnoun3, verbS)">Generate</button>
+          <h2>Mad with the Libs</h2>
+          <h4>I'm in love with {{customBoyName}}. He's so {{customAdj}}! He has big flat {{customPnoun1}}, and when our {{customPnoun2}} meet, I get {{customInsect}} in my stomach. I've fallen for him like a ton of {{customPnoun3}}, and he {{customVerbS}} for me, too. But I think he's got another girlfriend. What should I do?</h4>
+        </div>
+      </div>
+      <h1>section 7</h1>
+      <div ng-controller="MainController">
+        {{view.message}}
+        <div ng-if="view.number === 42">
+          Secret Message: <input type="text" ng-model="view.message">
+        </div>
+      </div>
+      <h3>Practice (to do)</h3>
+      <ul>
+        <li>Create an example of some buggy angular code where you try to two way data bind a primitive defined on the parent scope from inside the child scope.</li>
+        <li>Fix your example above, how did you fix it? What did you have to do to make it work?</li>
+      </ul>
+    </section>
+    <section class="eight">
+      <h1>section 8</h1>
+      <div ng-controller="SectionEight1">
+        <h3>The number is: {{view.number}}</h3>
+        <button ng-click="pickRandomNumber()">Pick Random Number</button>
+        <p style="font-weight: bold">Explain in as much detail as you can what happens when you click the button. Why does number update in the template without us telling it to?</p>
+        <p>When the button is clicked, the pickRandomNumber function runs and resets the number shown in the view. The number updates in the template because withing the pickRandomNumber function, we set the parent scope's view.number to the new number and that binds to the template view.</p>
+      </div>
+      <div ng-controller="SectionEight2">
+        <h3>Word Reverser</h3>
+        <input type="text" ng-model="word">
+        <p>Your word is: {{word}}</p>
+        <button ng-click="reverseWord(word)">Reverse</button>
+      </div>
+      <div class="ping-pong" ng-controller="PingPong">
+        <h1>Ping Pong Score Keeper</h1>
+        <div class="scores">
+          <div class="score" ng-class='{winner: game.player1===11, loser: game.player2===11}'>
+            <h3>Player 1</h3>
+            <button class="scoreNum" ng-class='{winner: game.player1===11, loser: game.player2===11}' ng-click="addPoint(1)">{{game.player1}}</button>
+            <p ng-show="game.points % 2 === 0">Serving</p>
+          </div>
+          <div class="score" ng-class='{winner: game.player2===11, loser: game.player1===11}'>
+            <h3>Player 2</h3>
+            <button class="scoreNum" ng-class='{winner: game.player2===11, loser: game.player1===11}' ng-click="addPoint(2)">{{game.player2}}</button>
+            <p ng-hide="game.points % 2 === 0">Serving</p>
+          </div>
+        </div>
+        <button ng-click="reset()">Reset</button>
+      </div>
+      <div ng-controller="MouseEnter">
+        <h3>The div was entered {{view.enterCount}} times</h3>
+        <div class="divbox" ng-mouseenter="view.enterCount = view.enterCount + 1">
+        </div>
+      </div>
+      <h5>Skipping random color generator and replay</h5>
+      <div ng-controller="FavForm">
+        <form ng-submit="submitFav()" name="favPieForm">
+          <input name="name" type="text" ng-model="favoriteForm.name">
+          <input name="favorite_pie" type="text" ng-model="favoriteForm.favoritePie">
+          <input type="submit">
+        </form>
+        Name: {{favoriteForm.name}}<br>
+        Favorite Pi: {{favoriteForm.favoritePie}}
+      </div>
+      <section class="contacts" ng-controller="ContactsApp">
+        <h1>Contacts App</h1>
+        <form ng-submit="addContact()" name="ContactsApp">
+          <label>Name</label>
+            <input name="name" type="text" ng-model="contact.name">
+          <label>Email</label>
+            <input name="email" type="text" ng-model="contact.email">
+          <label>Phone</label>
+            <input name="phone" type="text" ng-model="contact.phone">
+          <input type="submit" value="Add Contact" class="addContact">
+        </form>
+        <label for="name">Search</label>
+        <input name="search" type="text" ng-model="searchText">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+          <tr ng-repeat='contact in people | filter:searchText'>
+            <td>{{contact.name}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.phone}}</td>
+          </tr>
+        </table>
+      </section>
+    </section>
+    <section class="nine">
+      <h1>section 9</h1>
+      <form name="quizForm">
+        <label for="question" >Question</label>
+        <input name="question" type="text" id="question" ng-model="question" required ng-minlength="5" ng-class='{valid: quizForm.question.$valid}'>
+        <p ng-show='quizForm.question.$invalid'>please enter a valid question</p>
+        <!-- <label for=""></label>
+        <input type="text" id="" > -->
+        <input type="submit" value="Click me!">
+      </form>
+      <p>Moving onto reddit clone, but should go back and do more of the exercises.</p>
+    </section>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

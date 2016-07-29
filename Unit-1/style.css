@@ -1,0 +1,117 @@
+body{
+  display: flex;
+  flex-wrap: wrap-reverse;
+  box-sizing: border-box;
+}
+
+body > section{
+  border:1px black solid;
+  margin:.5vw;
+  padding: .5vw;
+  width: 31%;
+}
+.eight{
+  border:1px black solid;
+  margin:.5vw;
+  padding: .5vw;
+  width: 64%;
+}
+
+.mad-libs, .sign-up{
+  display:flex;
+  flex-direction: column;
+  border: .5px dashed black;
+  padding:.25vw;
+}
+
+.mad-libs label{
+  margin-top:.5vw;
+}
+.mad-libs h4{
+  margin-top: 0;
+}
+/*.valid{
+  color:green;
+  background-color: blue;
+}
+.invalid{
+  color:red;
+}*/
+
+.camera p{
+  margin: 0;
+}
+.camera h4{
+  margin-bottom: 0;
+}
+.camera img{
+  height: 5vw;
+}
+.onSale{
+  color:orange;
+}
+
+.ping-pong{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: .5px dashed black;
+}
+.scores{
+  display:flex;
+}
+.score{
+  width: 10vw;
+  height:10vw;
+  background-color: hsl(206, 74%, 53%);
+  color: white;
+  margin: .5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.score h3{
+  margin-bottom:0;
+}
+.scoreNum{
+  height:50%;
+  width:50%;
+  background-color: hsl(206, 74%, 53%);
+  color: white;
+  border: none;
+  font-size: 4vw;
+}
+.winner{
+  background-color: hsl(138, 69%, 53%);
+}
+.loser{
+  background-color: hsl(11, 89%, 59%);
+}
+.divbox {
+  width: 200px;
+  height: 200px;
+  border-style: solid;
+  border-width: 6px;
+}
+.contacts{
+  border: .5px dashed black;
+  padding: .5vw;
+}
+.addContact{
+  background-color: hsl(138, 69%, 53%);
+  color: white;
+  padding: .5vw;
+  border: none;
+}
+.contacts table{
+  width: 100%;
+  border: 1px lightblue solid;
+  margin-top: .5vw;
+}
+.contacts tr:nth-child(even) {
+  background-color: lightblue;
+}
+.valid{
+  color: green;
+  border: green 1px solid;
+}

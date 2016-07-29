@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="UnitTwo">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Unit 2 Notes</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-cloak>
+    <section>
+      <h1>Section 4, Custom Filters</h1>
+      <p>Remember that filters are just functions to which we pass input and get
+        some returned output to display. Every filter needs to return a function
+        that takes a single argument</p>
+      <input type="text" ng-model="caseFilter">
+      <p ng-show="caseFilter.length>0">Kebab filter: {{caseFilter | kebab}}</p>
+      <p ng-show="caseFilter.length>0">Camel filter: {{caseFilter | camel}}</p>
+    </section>
+    <section>
+      <h1>Section 5: Routing</h1>
+      <h3>Skipping ng-route and doing Unit 3 ui-router instead</h3>
+      <p><a href="http://www.funnyant.com/angularjs-ui-router/">ui-route tutorial</a></p>
+    </section>
+
+    <section ng-controller="ZenController">
+      <h1>Section 6: Services</h1>
+      <p>{{zenData}}
+    </section>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/controllers.js" ></script>
+    <script type="text/javascript" src="./js/directives.js" ></script>
+    <script type="text/javascript" src="./js/filters.js" ></script>
+    <script type="text/javascript" src="./js/services.js" ></script>
+  </body>
+</html>
