@@ -22,8 +22,33 @@
     </section>
 
     <section ng-controller="ZenController">
-      <h1>Section 6: Services</h1>
+      <h1>Section 6: http-service</h1>
       <p>{{zenData}}
+    </section>
+
+    <section ng-controller="Calculator" class="section8">
+      <h1>Section 8: Services</h1>
+      <div class="miniCalc">
+        <h3>Mini Calculator</h3>
+        <form class="miniCalc" action="javascript:void(0)" ng-submit="calculate(calculation, math.first, math.second)">
+        Operation:
+          <select name="math" ng-model="calculation" id="operation">
+            <option
+            ng-repeat="operation in operations" value="{{operation}}">
+            {{operation}}
+            </option>
+          </select>
+
+          <label for="mathFirst">First Number</label>
+          <input type="number" ng-model="math.first" id="mathFirst">
+
+          <label for="mathSecond">Second Number</label>
+          <input type="number" ng-model="math.second" id="mathSecond">
+
+          <input type="submit" value="calculate">
+        </form>
+        <h4>The value is: {{value}}</h4>
+      </div>
     </section>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>

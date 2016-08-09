@@ -14,3 +14,13 @@ body > section{
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
+
+.miniCalc{
+  display: flex;
+  flex-direction: column;
+  margin: .5vw;
+}
+
+input, select{
+  margin: .5vw 0;
+}
