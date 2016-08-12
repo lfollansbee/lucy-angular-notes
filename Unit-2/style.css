@@ -24,3 +24,21 @@ body > section{
 input, select{
   margin: .5vw 0;
 }
+
+.toDoApp{
+  display: flex;
+  flex-direction: column;
+  margin: .5vw;
+}
+
+.valid{
+  background-color: rgb(33, 224, 75);
+  font-weight: bold;
+}
+
+.edit{
+  background-color: lightblue;
+}
+.delete{
+  background-color: rgb(170, 77, 77);
+}

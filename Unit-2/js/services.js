@@ -42,3 +42,24 @@ app.service("mathService", function(){
     }
   }
 })
+
+app.service("toDoService", function(){
+  var toDos = []
+  return {
+    getToDos: function(){
+      return toDos
+    },
+    addToDo: function(input){
+      input.editFormShowing = false;
+      toDos.push(input)
+      return toDos
+    },
+    editToDo: function(index, todo){
+      toDos[index].task = todo.task
+      toDos[index].editFormShowing = false
+    },
+    deleteToDo:function(index){
+      toDos.splice(index, 1)
+    }
+  }
+})

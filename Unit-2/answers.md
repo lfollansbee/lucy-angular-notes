@@ -84,9 +84,9 @@ A service that helps you run functions asynchronously, and use their return valu
 
 ### Section Eight
 * What is a service? What problem do they solve for us?
-A service is a constructor function.
+A service is a constructor function that allows us to share data, properties, and methods between controllers.
 * What is a singleton? Why would we use them?
 
 * What is the difference between a factory, service and provider?
-A service is a constructor function while a factory is not. A factory function is really just a function that gets called which is why it has to return an object implicitly. A factory is also a type of service. A provider is a factory that can be configured before the application starts. 
+A service is a constructor function while a factory is not. A factory function is really just a function that gets called which is why it has to return an object implicitly. A factory is also a type of service. A provider is a factory that can be configured before the application starts.
 * Name at least 3 angular built in services that we have used so far.

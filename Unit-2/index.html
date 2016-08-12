@@ -38,17 +38,44 @@
             {{operation}}
             </option>
           </select>
-
           <label for="mathFirst">First Number</label>
           <input type="number" ng-model="math.first" id="mathFirst">
-
           <label for="mathSecond">Second Number</label>
           <input type="number" ng-model="math.second" id="mathSecond">
-
           <input type="submit" value="calculate">
         </form>
         <h4>The value is: {{value}}</h4>
       </div>
+    </section>
+
+    <section ng-controller="ToDo" class="section8">
+      <h1>Section 8: To Do List</h1>
+      <h3>Add a To Do</h3>
+      <form name="addToDoForm" class="toDoApp" ng-submit="addToDo(todo)" action="javascript:void(0)">
+        <input name="task" type="text"
+        ng-model="todo.task" required>
+        <input type="submit" value="Add" ng-class="{valid:addToDoForm.todo.task$valid}"
+        ng-disabled="addToDoForm.$invalid">
+      </form>
+      <h3>All of Your To Dos</h3>
+      <ul ng-repeat="todo in toDos track by $index">
+        <li>{{todo.task}}
+        <button class="edit" ng-click="toggleEditForm(todo)">Edit this task</button>
+        <button class="delete" ng-click="deleteToDo($index)">X</button>
+      </li>
+
+        <form name="editForm" ng-show="todo.editFormShowing"
+        action="javascript:void(0)"
+        ng-submit="editToDo($index, todo)">
+          <input type="text" ng-model="todo.task" value="{{todo.task}}" required>
+          <input type="submit" value="Edit"
+          ng-class="{valid:editForm.todo.task$valid}"
+          ng-disable="editForm.$invalid">
+        </form>
+      </ul>
+    </section>
+    <section>
+
     </section>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
